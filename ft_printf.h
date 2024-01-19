@@ -2,5 +2,8 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
+# include "libft/libft.h"
 
-# endif
+int print_dummy(void);
+
+#endif

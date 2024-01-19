@@ -1,15 +1,12 @@
 #include "ft_printf.h"
+# include <stdio.h>
+// to compile and run:
+// 1. make
+// 2. cc -Wall -Wextra -Werror -o test test.c -L. -lftprintf 
+// (where test.c can be any file with tests)
 
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc == 1)
-	{
-		if (ft_strchr("1\0", '1'))
-			printf("It works.");
-		else
-			printf("It doesn't work.");
-	}
+	printf("%c", print_dummy());
 	return (0);
 }

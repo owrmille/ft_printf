@@ -1,26 +1,33 @@
-FILES = ft_printf \
-		test
-
-LIBFT = ./libft/libft.a
-MAKE_LIB = ar -rcs
-
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
-INCLS = ft_printf.h
-HEADERS = $(INCLS)
-CFILES =  $(addsuffix .c, $(FILES))
-OFILES = $(addsuffix .o, $(FILES))
 NAME = libftprintf.a
-$(NAME): $(OFILES) $(LIBFT)
-	$(MAKE_LIB) $(NAME) $(OFILES)
-%.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $(NAME) $(OFILES)
-all: $(NAME)
-clean:
-		rm -f *.o
-flcean:
-		rm -f $(NAME)
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g
+LIBFT_PATH = ./libft
+LIBFT = $(LIBFT_PATH)/libft.a
+MAKE_LIB = ar -rcs
+INCS = .
+
+SRCS =	ft_printf.c
+
+OBJS = $(SRCS:.c=.o)
+
+all : $(NAME)
+
+$(NAME) : $(OBJS) $(LIBFT)
+	$(MAKE_LIB) $(NAME) $(OBJS)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -I$(INCS)
+
+$(LIBFT) :
+	cd $(LIBFT_PATH) && make
+	cp $(LIBFT) $(NAME)
+
+clean :
+	rm -rf $(OBJS) $(NAME)
+
+fclean : clean
+	cd $(LIBFT_PATH) && make fclean
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
