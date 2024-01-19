@@ -2,8 +2,9 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
+# include <stdarg.h>
 # include "libft/libft.h"
 
-int print_dummy(void);
+int	ft_printf(void);
 
 #endif
