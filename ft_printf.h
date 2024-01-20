@@ -5,6 +5,7 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-int	ft_printf(void);
+int	ft_printf(char *content_str, ...);
+int	ft_check_type(char type, va_list args);
 
 #endif

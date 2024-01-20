@@ -7,6 +7,10 @@
 
 int	main(void)
 {
-	ft_printf();
+	char	*content_str = "Hello my name is %s %c and I'm %d years old";
+	char	*str = "Laura";
+	char	character = 'M';
+	int		digit = 23;
+	ft_printf(content_str, str, character, digit);
 	return (0);
 }

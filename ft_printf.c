@@ -1,27 +1,23 @@
 #include "ft_printf.h"
 
-int	ft_printf(void)
+int	ft_printf(char *content_str, ...)
 {
-	char	*format_str = "Hello my name is %s %c and I'm %d years old";
-	char	*arg1 = "Laura";
-	char	arg2 = 'M';
-	int		arg3 = 23;
+	int		printed_chars;
 	int		i;
+	va_list	args;
 
+	printed_chars = 0;
 	i = 0;
-	while (format_str[i])
+	va_start(args, content_str);
+	while (content_str[i])
 	{
-		while (format_str[i] != '%')
-		{
-			ft_putchar_fd(format_str[i], 1);
-			i++;
-		}
-		if (format_str[i + 1] == 's')
-			ft_putstr_fd(arg1, 1);
-		else if (format_str[i + 1] == 'c')
-			ft_putchr_fd(arg2, 1);
-		else if (format_str[i + 1] == 'd')
-			ft_putnbr_fd(arg3, 1);
+		if (content_str[i] == '%')
+			printed_chars += check_type(content_str[++i], args);
+		else
+			printed_chars += ft_print_c(content_str[i++]);
 	}
-	return (0);
+	va_end(args);
+	// if (printed_chars < 0)
+	// 	return (-1);
+	return (printed_chars);
 }
