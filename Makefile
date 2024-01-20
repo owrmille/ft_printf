@@ -6,7 +6,11 @@ LIBFT = $(LIBFT_PATH)/libft.a
 MAKE_LIB = ar -rcs
 INCS = .
 
-SRCS =	ft_printf.c
+SRCS =	ft_printf.c \
+		ft_check_type.c \
+		ft_print_c.c \
+		ft_print_s.c \
+		ft_print_d.c
 
 OBJS = $(SRCS:.c=.o)
 

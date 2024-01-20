@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_printf(char *content_str, ...)
+int	ft_printf(const char *content_str, ...)
 {
 	int		printed_chars;
 	int		i;
@@ -12,9 +12,10 @@ int	ft_printf(char *content_str, ...)
 	while (content_str[i])
 	{
 		if (content_str[i] == '%')
-			printed_chars += check_type(content_str[++i], args);
+			printed_chars += ft_check_type(content_str[++i], args);
 		else
-			printed_chars += ft_print_c(content_str[i++]);
+			printed_chars += ft_print_c(content_str[i]);
+		i++;
 	}
 	va_end(args);
 	// if (printed_chars < 0)
