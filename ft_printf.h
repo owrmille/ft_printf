@@ -10,5 +10,7 @@ int	ft_check_type(char type, va_list args);
 int	ft_print_c(int c);
 int	ft_print_s(char *s);
 int	ft_print_d(int n);
+int	ft_hexadec_nbr(unsigned long n, char *system);
+int	ft_print_x(unsigned int n, int letter_case);
 
 #endif

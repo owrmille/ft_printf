@@ -39,6 +39,39 @@ int test_d()
 	return (ft_printf(content, value));
 }
 
+int test_x()
+{
+	char	*content = "Just a test for x: %x|";
+	unsigned long		value = 24096;
+	
+	printf("\nOriginal result:\n");
+	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nMy result:\n");
+	return (ft_printf(content, value));
+}
+
+int test_X()
+{
+	char	*content = "Just a test for X: %X|";
+	unsigned long value = 24096;
+	
+	printf("\nOriginal result:\n");
+	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nMy result:\n");
+	return (ft_printf(content, value));
+}
+
+int test_percent_sign()
+{
+	char	*content = "The rate was 50%%|";
+	char		value = '%';
+	
+	printf("\nOriginal result:\n");
+	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nMy result:\n");
+	return (ft_printf(content, value));
+}
+
 int test_all()
 {
 	char	*content = "Hello my name is %s %c and I'm %d years old|";
@@ -63,19 +96,39 @@ int test_c_error()
 	return (ft_printf(content, value));
 }
 
+int	test_hexadec_nbr()
+{
+	// unsigned long n = 255; // ff
+	unsigned long n = 24096; // 5E20
+	char *system = "0123456789abcdef";
+	return (ft_hexadec_nbr(n, system));
+}
+
 int	main(void)
 {
-	char option = 'A';
+	char option = 'x';
+	int hex_flg = 0;
 	int error_flg = 0;
 
-	if (option == 'c' &&!error_flg)
+	if (hex_flg)
+	{
+		printf("Hex. number:\n");
+		printf("\nNumber of printed characters: %d\n", test_hexadec_nbr());
+	}
+	else if (option == 'c' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_c());
-	else if (option == 'd' &&!error_flg)
+	else if ((option == 'd') || (option == 'i'))
 		printf("\nNumber of printed characters: %d\n", test_d());
-	else if (option == 's' &&!error_flg)
+	else if (option == 's' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_s());
-	else if (option == 'A' &&!error_flg)
+	else if (option == 'x' && (!error_flg))
+		printf("\nNumber of printed characters: %d\n", test_x());
+	else if (option == 'X' && (!error_flg))
+		printf("\nNumber of printed characters: %d\n", test_X());
+	else if (option == 'A' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_all());
+	else if (option == '%' && (!error_flg))
+		printf("\nNumber of printed characters: %d\n", test_percent_sign());
 
 	// errors: (can't get an error, don't know why)
 	else if (option == 'c' && error_flg)

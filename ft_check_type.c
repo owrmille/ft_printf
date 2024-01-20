@@ -9,7 +9,13 @@ int	ft_check_type(char type, va_list args)
 		printed_chars += ft_print_c(va_arg(args, int));
 	else if (type == 's')
 		printed_chars += ft_print_s(va_arg(args, char *));
-	else if (type == 'd')
+	else if (type == 'd' || type == 'i')
 		printed_chars += ft_print_d(va_arg(args, int));
+	else if (type == 'x' || type == 'X')
+		printed_chars += ft_print_x(va_arg(args, unsigned int), type);
+	// else if (type == 'p')
+	// 	printed_chars += ft_print_p(va_arg(args, void *));
+	else if (type == '%')
+		return (write(1, "%", 1));
 	return (printed_chars);
 }
