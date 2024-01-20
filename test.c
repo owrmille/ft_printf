@@ -64,9 +64,12 @@ int test_X()
 
 int test_p()
 {
-	int num = 42;
+	
 	char	*content = "Just a test for p: %p|";
-	int *value = &num;
+	// int num = 42;
+	// int *value = &num;
+
+	int *value = NULL;
 	
 	printf("\nOriginal result:\n");
 	printf("\nNumber of printed characters: %d\n", printf(content, value));
