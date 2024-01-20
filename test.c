@@ -20,7 +20,8 @@ int test_c()
 int test_s()
 {
 	char	*content = "Hello my name is %s|";
-	char	*value = "Laura";
+	// char	*value = "Laura";
+	char *value = NULL;
 
 	printf("\nOriginal result:\n");
 	printf("\nLength of string: %d\n", printf(content, value));
@@ -106,7 +107,7 @@ int	test_hexadec_nbr()
 
 int	main(void)
 {
-	char option = 'x';
+	char option = 's';
 	int hex_flg = 0;
 	int error_flg = 0;
 
