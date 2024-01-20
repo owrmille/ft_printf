@@ -15,6 +15,8 @@ int	ft_check_type(char type, va_list args)
 		printed_chars += ft_print_x(va_arg(args, unsigned int), type);
 	else if (type == 'p')
 		printed_chars += ft_print_p(va_arg(args, unsigned long));
+	else if (type == 'u')
+		printed_chars += ft_print_u(va_arg(args, unsigned int));
 	else if (type == '%')
 		return (write(1, "%", 1));
 	return (printed_chars);

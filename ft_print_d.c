@@ -8,9 +8,7 @@ int	ft_print_d(int n)
 
 	printed_chars = 0;
 	if (n == -2147483648)
-	{
 		printed_chars += write(1, "-2147483648", 11);
-	}
 	else
 	{
 		if (n < 0)
@@ -20,9 +18,7 @@ int	ft_print_d(int n)
 		}
 		new_nb = n;
 		if (new_nb / 10 != 0)
-		{
 			printed_chars += ft_print_d(new_nb / 10);
-		}
 		printed_digit = (new_nb % 10) + '0';
 		printed_chars += write(1, &printed_digit, 1);
 	}
