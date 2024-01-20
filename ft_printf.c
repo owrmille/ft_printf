@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iatopchu <iatopchu@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/20 19:18:11 by iatopchu          #+#    #+#             */
+/*   Updated: 2024/01/20 19:18:12 by iatopchu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_printf(const char *content_str, ...)
@@ -18,7 +30,5 @@ int	ft_printf(const char *content_str, ...)
 		i++;
 	}
 	va_end(args);
-	// if (printed_chars < 0)
-	// 	return (-1);
 	return (printed_chars);
 }

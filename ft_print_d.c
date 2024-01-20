@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_d.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iatopchu <iatopchu@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/20 19:17:47 by iatopchu          #+#    #+#             */
+/*   Updated: 2024/01/20 19:19:35 by iatopchu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_print_d(int n)
 {
 	int	printed_digit;
 	int	new_nb;
-	int printed_chars;
+	int	printed_chars;
 
 	printed_chars = 0;
 	if (n == -2147483648)
