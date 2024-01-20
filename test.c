@@ -32,7 +32,8 @@ int test_s()
 int test_d()
 {
 	char	*content = "I'm %d years old|";
-	int		value = 23;
+	// int		value = 23;
+	int value = 429496729;
 	
 	printf("\nOriginal result:\n");
 	printf("\nNumber of printed characters: %d\n", printf(content, value));
@@ -70,6 +71,17 @@ int test_p()
 	// int *value = &num;
 
 	int *value = NULL;
+	
+	printf("\nOriginal result:\n");
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
+	printf("\nMy result:\n");
+	return (ft_printf(content, value));
+}
+
+int test_u()
+{
+	char	*content = "I'm %u years old|";
+	unsigned int	value = 4294967293;
 	
 	printf("\nOriginal result:\n");
 	printf("\nNumber of printed characters: %d\n", printf(content, value));
@@ -122,7 +134,7 @@ int	test_hexadec_nbr()
 
 int	main(void)
 {
-	char option = 'p';
+	char option = 'u';
 	int hex_flg = 0;
 	int error_flg = 0;
 
@@ -143,6 +155,8 @@ int	main(void)
 		printf("\nNumber of printed characters: %d\n", test_X());
 	else if (option == 'p' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_p());
+	else if (option == 'u')
+		printf("\nNumber of printed characters: %d\n", test_u());
 	else if (option == 'A' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_all());
 	else if (option == '%' && (!error_flg))
