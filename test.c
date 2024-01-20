@@ -12,7 +12,7 @@ int test_c()
 	char	value = 'D';
 
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -24,7 +24,7 @@ int test_s()
 	char *value = NULL;
 
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -35,7 +35,7 @@ int test_d()
 	int		value = 23;
 	
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -46,7 +46,7 @@ int test_x()
 	unsigned long		value = 24096;
 	
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -57,7 +57,19 @@ int test_X()
 	unsigned long value = 24096;
 	
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
+	printf("\nMy result:\n");
+	return (ft_printf(content, value));
+}
+
+int test_p()
+{
+	int num = 42;
+	char	*content = "Just a test for p: %p|";
+	int *value = &num;
+	
+	printf("\nOriginal result:\n");
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -68,7 +80,7 @@ int test_percent_sign()
 	char		value = '%';
 	
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -81,7 +93,7 @@ int test_all()
 	int		digit = 23;
 
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, str, character, digit));
+	printf("\nNumber of printed characters: %d\n", printf(content, str, character, digit));
 	printf("\nMy result:\n");
 	return (ft_printf(content, str, character, digit));
 }
@@ -92,7 +104,7 @@ int test_c_error()
 	char *value = "OOPS";
 
 	printf("\nOriginal result:\n");
-	printf("\nLength of string: %d\n", printf(content, value));
+	printf("\nLNumber of printed characters: %d\n", printf(content, value));
 	printf("\nMy result:\n");
 	return (ft_printf(content, value));
 }
@@ -107,7 +119,7 @@ int	test_hexadec_nbr()
 
 int	main(void)
 {
-	char option = 's';
+	char option = 'p';
 	int hex_flg = 0;
 	int error_flg = 0;
 
@@ -126,6 +138,8 @@ int	main(void)
 		printf("\nNumber of printed characters: %d\n", test_x());
 	else if (option == 'X' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_X());
+	else if (option == 'p' && (!error_flg))
+		printf("\nNumber of printed characters: %d\n", test_p());
 	else if (option == 'A' && (!error_flg))
 		printf("\nNumber of printed characters: %d\n", test_all());
 	else if (option == '%' && (!error_flg))

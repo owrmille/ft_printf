@@ -12,5 +12,6 @@ int	ft_print_s(char *s);
 int	ft_print_d(int n);
 int	ft_hexadec_nbr(unsigned long n, char *system);
 int	ft_print_x(unsigned int n, int letter_case);
+int	ft_print_p(unsigned long ptr_adress);
 
 #endif

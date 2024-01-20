@@ -12,7 +12,8 @@ SRCS =	ft_printf.c \
 		ft_print_s.c \
 		ft_print_d.c \
 		ft_hexadec_nbr.c \
-		ft_print_x.c
+		ft_print_x.c \
+		ft_print_p.c
 
 OBJS = $(SRCS:.c=.o)
 
