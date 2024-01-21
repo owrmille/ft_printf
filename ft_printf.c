@@ -6,7 +6,7 @@
 /*   By: iatopchu <iatopchu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:18:11 by iatopchu          #+#    #+#             */
-/*   Updated: 2024/01/20 19:18:12 by iatopchu         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:23:29 by iatopchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_printf(const char *content_str, ...)
 
 	printed_chars = 0;
 	i = 0;
+	if (!content_str)
+		return (-1);
 	va_start(args, content_str);
 	while (content_str[i])
 	{
